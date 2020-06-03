@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DSS example &#8212; MEEGkit  documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ASR example" href="example_asr.html" />
+    <link rel="prev" title="Sparse time artifact removal on simulated data" href="example_star.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          MEEGkit</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="index.html">Examples</a></li>
+                <li><a href="https://github.com/nbara/python-meegkit">GitHub</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">MEEGkit documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.asr.html">meegkit.asr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.cca.html">meegkit.cca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.dss.html">meegkit.dss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.detrend.html">meegkit.detrend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.sns.html">meegkit.sns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.star.html">meegkit.star</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.tspca.html">meegkit.tspca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.utils.html">meegkit.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.covariances">Covariances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.denoise">Denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.matrix">Matrix manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.sig">Signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.stats">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">MEEGkit examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="example_dering.html">Ringing artifact reduction example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_dering.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_star.html">Sparse time artifact removal on simulated data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DSS example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_asr.html">ASR example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_detrend.html">Robust detrending examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_detrend.html#regression">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_detrend.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_star_dss.html">Example demonstrating STAR + DSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_mcca.html">Example multiway canonical correlation analysis (mCCA)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">DSS example</a><ul>
+<li><a class="reference internal" href="#create-simulated-data">Create simulated data</a></li>
+<li><a class="reference internal" href="#apply-dss-to-clean-them">Apply DSS to clean them</a></li>
+<li><a class="reference internal" href="#plot-results">Plot results</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/auto_examples/example_dss.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-example-dss-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="dss-example">
+<span id="sphx-glr-auto-examples-example-dss-py"></span><h1>DSS example<a class="headerlink" href="#dss-example" title="Permalink to this headline">¶</a></h1>
+<p>Find the linear combinations of multichannel data that maximize repeatability
+over trials.</p>
+<p>Uses meegkit.dss0().</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">meegkit</span> <span class="kn">import</span> <span class="n">dss</span>
+<span class="kn">from</span> <span class="nn">meegkit.utils</span> <span class="kn">import</span> <span class="n">unfold</span><span class="p">,</span> <span class="n">rms</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">tscov</span>
+
+<span class="c1"># import config</span>
+</pre></div>
+</div>
+<div class="section" id="create-simulated-data">
+<h2>Create simulated data<a class="headerlink" href="#create-simulated-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data are time * channel * trials.</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">n_chans</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">n_trials</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">noise_dim</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># dimensionality of noise</span>
+
+<span class="c1"># Source signal</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,)),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_samples</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,))))[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">source</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_chans</span><span class="p">)</span>  <span class="c1"># 300 * 30</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="c1"># Noise</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+    <span class="n">unfold</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">noise_dim</span><span class="p">,</span> <span class="n">n_trials</span><span class="p">)),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">noise_dim</span><span class="p">,</span> <span class="n">n_chans</span><span class="p">))</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">fold</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+
+<span class="c1"># Mix signal and noise</span>
+<span class="n">SNR</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">noise</span> <span class="o">/</span> <span class="n">rms</span><span class="p">(</span><span class="n">noise</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span> <span class="o">+</span> <span class="n">SNR</span> <span class="o">*</span> <span class="n">s</span> <span class="o">/</span> <span class="n">rms</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="apply-dss-to-clean-them">
+<h2>Apply DSS to clean them<a class="headerlink" href="#apply-dss-to-clean-them" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute original and biased covariance matrices</span>
+<span class="n">c0</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">tscov</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># In this case the biased covariance is simply the covariance of the mean over</span>
+<span class="c1"># trials</span>
+<span class="n">c1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">tscov</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Apply DSS</span>
+<span class="p">[</span><span class="n">todss</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">pwr0</span><span class="p">,</span> <span class="n">pwr1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dss</span><span class="o">.</span><span class="n">dss0</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">fold</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">unfold</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">todss</span><span class="p">),</span> <span class="n">epoch_size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+
+<span class="c1"># Find best components</span>
+<span class="n">best_comp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">z</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-results">
+<h2>Plot results<a class="headerlink" href="#plot-results" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">best_comp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;recovered&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="example dss" class="sphx-glr-single-img" src="../_images/sphx_glr_example_dss_001.png" />
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.292 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-example-dss-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/2fbd87c3c21a32725b35b241ad00fa82/example_dss.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_dss.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/22a83c59bf23910872ecdf61ccc22837/example_dss.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">example_dss.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nicolas Barascud.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

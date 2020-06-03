@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>meegkit.asr &#8212; MEEGkit  documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="meegkit.cca" href="meegkit.cca.html" />
+    <link rel="prev" title="Welcome to MEEGkit" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          MEEGkit</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+                <li><a href="https://github.com/nbara/python-meegkit">GitHub</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">MEEGkit documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">meegkit.asr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.cca.html">meegkit.cca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.dss.html">meegkit.dss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.detrend.html">meegkit.detrend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.sns.html">meegkit.sns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.star.html">meegkit.star</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.tspca.html">meegkit.tspca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.utils.html">meegkit.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.covariances">Covariances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.denoise">Denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.matrix">Matrix manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.sig">Signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.stats">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">MEEGkit examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dering.html">Ringing artifact reduction example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dering.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_star.html">Sparse time artifact removal on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dss.html">DSS example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_asr.html">ASR example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html">Robust detrending examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html#regression">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_star_dss.html">Example demonstrating STAR + DSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_mcca.html">Example multiway canonical correlation analysis (mCCA)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">meegkit.asr</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/modules/meegkit.asr.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="module-meegkit.asr">
+<span id="meegkit-asr"></span><h1>meegkit.asr<a class="headerlink" href="#module-meegkit.asr" title="Permalink to this headline">¶</a></h1>
+<p>Artifact Subspace Reconstruction.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#meegkit.asr.asr_calibrate" title="meegkit.asr.asr_calibrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asr_calibrate</span></code></a>(X, sfreq[, cutoff, blocksize, …])</p></td>
+<td><p>Calibration function for the Artifact Subspace Reconstruction method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#meegkit.asr.asr_process" title="meegkit.asr.asr_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asr_process</span></code></a>(X, X_filt, state[, cov, …])</p></td>
+<td><p>Apply Artifact Subspace Reconstruction method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#meegkit.asr.clean_windows" title="meegkit.asr.clean_windows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clean_windows</span></code></a>(X, sfreq[, max_bad_chans, …])</p></td>
+<td><p>Remove periods with abnormally high-power content from continuous data.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#meegkit.asr.ASR" title="meegkit.asr.ASR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ASR</span></code></a>([sfreq, cutoff, blocksize, win_len, …])</p></td>
+<td><p>Artifact Subspace Reconstruction.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="meegkit.asr.ASR">
+<em class="property">class </em><code class="sig-prename descclassname">meegkit.asr.</code><code class="sig-name descname">ASR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sfreq</span><span class="o">=</span><span class="default_value">250</span></em>, <em class="sig-param"><span class="n">cutoff</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">blocksize</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">win_len</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">win_overlap</span><span class="o">=</span><span class="default_value">0.66</span></em>, <em class="sig-param"><span class="n">max_dropout_fraction</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">min_clean_fraction</span><span class="o">=</span><span class="default_value">0.25</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'asrfilter'</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'euclid'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.asr.ASR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Artifact Subspace Reconstruction.</p>
+<p>Artifact subspace reconstruction (ASR) is an automatic, online,
+component-based artifact removal method for removing transient or
+large-amplitude artifacts in multi-channel EEG recordings <a class="reference internal" href="#r1a718508a8ee-1" id="id1">[1]</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>)</em>) – <em>zero-mean</em> (e.g., high-pass filtered) and reasonably clean EEG of not
+much less than 30 seconds (this method is typically used with 1 minute
+or more).</p></li>
+<li><p><strong>sfreq</strong> (<em>float</em>) – Sampling rate of the data, in Hz.</p></li>
+<li><p><strong>following are optional parameters</strong><strong> (</strong><strong>the key parameter of the method is</strong> (<em>The</em>) – </p></li>
+<li><p><strong>cutoff</strong><strong>)</strong> (<em>the</em>) – </p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – Standard deviation cutoff for rejection. X portions whose variance
+is larger than this threshold relative to the calibration data are
+considered missing data and will be removed. The most aggressive value
+that can be used without losing too much EEG is 2.5. A quite
+conservative value would be 5 (default=5).</p></li>
+<li><p><strong>blocksize</strong> (<em>int</em>) – Block size for calculating the robust data covariance and thresholds,
+in samples; allows to reduce the memory and time requirements of the
+robust estimators by this factor (down to Channels x Channels x Samples
+x 16 / Blocksize bytes) (default=10).</p></li>
+<li><p><strong>win_len</strong> (<em>float</em>) – Window length (s) that is used to check the data for artifact content.
+This is ideally as long as the expected time scale of the artifacts but
+not shorter than half a cycle of the high-pass filter that was used
+(default=1).</p></li>
+<li><p><strong>win_overlap</strong> (<em>float</em>) – Window overlap fraction. The fraction of two successive windows that
+overlaps. Higher overlap ensures that fewer artifact portions are going
+to be missed, but is slower (default=0.66).</p></li>
+<li><p><strong>max_dropout_fraction</strong> (<em>float</em>) – Maximum fraction of windows that can be subject to signal dropouts
+(e.g., sensor unplugged), used for threshold estimation (default=0.1).</p></li>
+<li><p><strong>min_clean_fraction</strong> (<em>float</em>) – Minimum fraction of windows that need to be clean, used for threshold
+estimation (default=0.25).</p></li>
+<li><p><strong>method</strong> (<em>{'riemann'</em><em>, </em><em>'euclid'}</em>) – Method to use. If riemann, use the riemannian-modified version of
+ASR <a class="reference internal" href="#r1a718508a8ee-2" id="id2">[2]</a>.</p></li>
+<li><p><strong>memory</strong> (<em>float</em>) – Memory size (s), regulates the number of covariance matrices to store.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">``state_``</code></dt>
+<dd><p>Initial state of the ASR filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">``zi_``</code></dt>
+<dd><p>Filter initial conditions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array, shape=(n_channels, filter_order)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">``ab_``</code></dt>
+<dd><p>Coefficients of an IIR filter that is used to shape the spectrum of the
+signal when calculating artifact statistics. The output signal does not
+go through this filter. This is an optional way to tune the sensitivity
+of the algorithm to each frequency component of the signal. The default
+filter is less sensitive at alpha and beta frequencies and more
+sensitive at delta (blinks) and gamma (muscle) frequencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>2-tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">``cov_``</code></dt>
+<dd><p>Previous covariance matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array, shape=(channels, channels)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">``state_``</code></dt>
+<dd><p>Previous ASR parameters (as derived by <a class="reference internal" href="#meegkit.asr.asr_calibrate" title="meegkit.asr.asr_calibrate"><code class="xref py py-func docutils literal notranslate"><span class="pre">asr_calibrate()</span></code></a>) for
+successive calls to <a class="reference internal" href="#meegkit.asr.ASR.transform" title="meegkit.asr.ASR.transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transform()</span></code></a>. Required fields are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span></code> : Mixing matrix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code> : Threshold matrix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">R</span></code> : Reconstruction matrix (array | None)</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="r1a718508a8ee-1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Kothe, C. A. E., &amp; Jung, T. P. (2016). U.S. Patent Application No.
+14/895,440. <a class="reference external" href="https://patents.google.com/patent/US20160113587A1/en">https://patents.google.com/patent/US20160113587A1/en</a></p>
+</dd>
+<dt class="label" id="r1a718508a8ee-2"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Blum, S., Jacobsen, N. S. J., Bleichner, M. G., &amp; Debener, S.
+(2019). A Riemannian Modification of Artifact Subspace Reconstruction
+for EEG Artifact Handling. Frontiers in Human Neuroscience, 13.
+<a class="reference external" href="https://doi.org/10.3389/fnhum.2019.00141">https://doi.org/10.3389/fnhum.2019.00141</a></p>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#meegkit.asr.ASR.fit" title="meegkit.asr.ASR.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(self, X[, y])</p></td>
+<td><p>Calibration for the Artifact Subspace Reconstruction method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#meegkit.asr.ASR.transform" title="meegkit.asr.ASR.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(self, X[, y])</p></td>
+<td><p>Apply Artifact Subspace Reconstruction.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="meegkit.asr.ASR.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">sfreq</span><span class="o">=</span><span class="default_value">250</span></em>, <em class="sig-param"><span class="n">cutoff</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">blocksize</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">win_len</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">win_overlap</span><span class="o">=</span><span class="default_value">0.66</span></em>, <em class="sig-param"><span class="n">max_dropout_fraction</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">min_clean_fraction</span><span class="o">=</span><span class="default_value">0.25</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">'asrfilter'</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'euclid'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.asr.ASR.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="meegkit.asr.ASR.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.asr.ASR.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calibration for the Artifact Subspace Reconstruction method.</p>
+<p>The input to this data is a multi-channel time series of calibration
+data. In typical uses the calibration data is clean resting EEG data of
+data if the fraction of artifact content is below the breakdown point
+of the robust statistics used for estimation (50% theoretical, ~30%
+practical). If the data has a proportion of more than 30-50% artifacts
+then bad time windows should be removed beforehand. This data is used
+to estimate the thresholds that are used by the ASR processing function
+to identify and remove artifact components.</p>
+<p>The calibration data must have been recorded for the same cap design
+from which data for cleanup will be recorded, and ideally should be
+from the same session and same subject, but it is possible to reuse the
+calibration data from a previous session and montage to the extent that
+the cap is placed in the same location (where loss in accuracy is more
+or less proportional to the mismatch in cap placement).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>n_channels</em><em>, </em><em>n_samples</em><em>)</em>) – The calibration data should have been high-pass filtered (for
+example at 0.5Hz or 1Hz using a Butterworth IIR filter).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="meegkit.asr.ASR.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.asr.ASR.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply Artifact Subspace Reconstruction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>[</em><em>n_trials</em><em>, </em><em>]</em><em>n_channels</em><em>, </em><em>n_samples</em><em>)</em>) – Raw data.</p></li>
+<li><p><strong>X_filt</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>[</em><em>n_trials</em><em>, </em><em>]</em><em>n_channels</em><em>, </em><em>n_samples</em><em>)</em>) – Yulewalk-filtered data (optional). If this i</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> – Filtered data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array, shape=([n_trials, ]n_channels, n_samples)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="meegkit.asr.clean_windows">
+<code class="sig-prename descclassname">meegkit.asr.</code><code class="sig-name descname">clean_windows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">sfreq</span></em>, <em class="sig-param"><span class="n">max_bad_chans</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">zthresholds</span><span class="o">=</span><span class="default_value">[- 3.5, 5]</span></em>, <em class="sig-param"><span class="n">win_len</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">win_overlap</span><span class="o">=</span><span class="default_value">0.66</span></em>, <em class="sig-param"><span class="n">min_clean_fraction</span><span class="o">=</span><span class="default_value">0.25</span></em>, <em class="sig-param"><span class="n">max_dropout_fraction</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.asr.clean_windows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove periods with abnormally high-power content from continuous data.</p>
+<p>This function cuts segments from the data which contain high-power
+artifacts. Specifically, only windows are retained which have less than a
+certain fraction of “bad” channels, where a channel is bad in a window if
+its power is above or below a given upper/lower threshold (in standard
+deviations from a robust estimate of the EEG power distribution in the
+channel).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>n_channels</em><em>, </em><em>n_samples</em><em>)</em>) – Continuous data set, assumed to be appropriately high-passed (e.g. &gt;
+1Hz or 0.5Hz - 2.0Hz transition band)</p></li>
+<li><p><strong>max_bad_chans</strong> (<em>float</em>) – The maximum number or fraction of bad channels that a retained window
+may still contain (more than this and it is removed). Reasonable range
+is 0.05 (very clean output) to 0.3 (very lax cleaning of only coarse
+artifacts) (default=0.2).</p></li>
+<li><p><strong>zthresholds</strong> (<em>2-tuple</em>) – The minimum and maximum standard deviations within which the power of a
+channel must lie (relative to a robust estimate of the clean EEG power
+distribution in the channel) for it to be considered “not bad”.
+(default=[-3.5, 5]).</p></li>
+<li><p><strong>following are detail parameters that usually do not have to be tuned.</strong> (<em>The</em>) – </p></li>
+<li><p><strong>you can't get the function to do what you want</strong><strong>, </strong><strong>you might consider</strong> (<em>If</em>) – </p></li>
+<li><p><strong>these to your data.</strong> (<em>adapting</em>) – </p></li>
+<li><p><strong>win_len</strong> (<em>float</em>) – Window length that is used to check the data for artifact content. This
+is ideally as long as the expected time scale of the artifacts but not
+shorter than half a cycle of the high-pass filter that was used.
+Default: 1.</p></li>
+<li><p><strong>win_overlap</strong> (<em>float</em>) – Window overlap fraction. The fraction of two successive windows that
+overlaps. Higher overlap ensures that fewer artifact portions are going
+to be missed, but is slower (default=0.66).</p></li>
+<li><p><strong>max_dropout_fraction</strong> (<em>float</em>) – Maximum fraction that can have dropouts. This is the maximum fraction
+of time windows that may have arbitrarily low amplitude (e.g., due to
+the sensors being unplugged) (default=0.1).</p></li>
+<li><p><strong>min_clean_fraction</strong> (<em>float</em>) – Minimum fraction that needs to be clean. This is the minimum fraction
+of time windows that need to contain essentially uncontaminated EEG.
+(default=0.25)</p></li>
+<li><p><strong>following are expert-level parameters that you should not tune unless</strong> (<em>The</em>) – </p></li>
+<li><p><strong>fully understand how the method works.</strong> (<em>you</em>) – </p></li>
+<li><p><strong>truncate_quant</strong> – Truncated Gaussian quantile. Quantile range [upper,lower] of the
+truncated Gaussian distribution that shall be fit to the EEG contents.
+(default=[0.022, 0.6])</p></li>
+<li><p><strong>step_sizes</strong> – Grid search stepping. Step size of the grid search, in quantiles;
+separately for [lower,upper] edge of the truncated Gaussian. The lower
+edge has finer stepping because the clean data density is assumed to be
+lower there, so small changes in quantile amount to large changes in
+data space (default=[0.01 0.01]).</p></li>
+<li><p><strong>shape_range</strong> – Shape parameter range. Search range for the shape parameter of the
+generalized Gaussian distribution used to fit clean EEG (default:
+1.7:0.15:3.5).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>clean</strong> (<em>array, shape=(n_channels, n_samples)</em>) – Dataset with bad time periods removed.</p></li>
+<li><p><strong>sample_mask</strong> (<em>boolean array, shape=(1, n_samples)</em>) – Mask of retained samples (logical array).</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meegkit.asr.asr_calibrate">
+<code class="sig-prename descclassname">meegkit.asr.</code><code class="sig-name descname">asr_calibrate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">sfreq</span></em>, <em class="sig-param"><span class="n">cutoff</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">blocksize</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">win_len</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">win_overlap</span><span class="o">=</span><span class="default_value">0.66</span></em>, <em class="sig-param"><span class="n">max_dropout_fraction</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">min_clean_fraction</span><span class="o">=</span><span class="default_value">0.25</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'euclid'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.asr.asr_calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calibration function for the Artifact Subspace Reconstruction method.</p>
+<p>The input to this data is a multi-channel time series of calibration data.
+In typical uses the calibration data is clean resting EEG data of ca. 1
+minute duration (can also be longer). One can also use on-task data if the
+fraction of artifact content is below the breakdown point of the robust
+statistics used for estimation (50% theoretical, ~30% practical). If the
+data has a proportion of more than 30-50% artifacts then bad time windows
+should be removed beforehand. This data is used to estimate the thresholds
+that are used by the ASR processing function to identify and remove
+artifact components.</p>
+<p>The calibration data must have been recorded for the same cap design from
+which data for cleanup will be recorded, and ideally should be from the
+same session and same subject, but it is possible to reuse the calibration
+data from a previous session and montage to the extent that the cap is
+placed in the same location (where loss in accuracy is more or less
+proportional to the mismatch in cap placement).</p>
+<p>The calibration data should have been high-pass filtered (for example at
+0.5Hz or 1Hz using a Butterworth IIR filter).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>[</em><em>n_trials</em><em>, </em><em>]</em><em>n_channels</em><em>, </em><em>n_samples</em><em>)</em>) – <em>zero-mean</em> (e.g., high-pass filtered) and reasonably clean EEG of not
+much less than 30 seconds (this method is typically used with 1 minute
+or more).</p></li>
+<li><p><strong>sfreq</strong> (<em>float</em>) – Sampling rate of the data, in Hz.</p></li>
+<li><p><strong>following are optional parameters</strong><strong> (</strong><strong>the key parameter of the method is</strong> (<em>The</em>) – </p></li>
+<li><p><strong>cutoff</strong><strong>)</strong> (<em>the</em>) – </p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – Standard deviation cutoff for rejection. X portions whose variance
+is larger than this threshold relative to the calibration data are
+considered missing data and will be removed. The most aggressive value
+that can be used without losing too much EEG is 2.5. A quite
+conservative value would be 5 (default=5).</p></li>
+<li><p><strong>blocksize</strong> (<em>int</em>) – Block size for calculating the robust data covariance and thresholds,
+in samples; allows to reduce the memory and time requirements of the
+robust estimators by this factor (down to Channels x Channels x Samples
+x 16 / Blocksize bytes) (default=10).</p></li>
+<li><p><strong>win_len</strong> (<em>float</em>) – Window length that is used to check the data for artifact content. This
+is ideally as long as the expected time scale of the artifacts but
+short enough to allow for several 1000 windows to compute statistics
+over (default=0.5).</p></li>
+<li><p><strong>win_overlap</strong> (<em>float</em>) – Window overlap fraction. The fraction of two successive windows that
+overlaps. Higher overlap ensures that fewer artifact portions are going
+to be missed, but is slower (default=0.66).</p></li>
+<li><p><strong>max_dropout_fraction</strong> (<em>float</em>) – Maximum fraction of windows that can be subject to signal dropouts
+(e.g., sensor unplugged), used for threshold estimation (default=0.1).</p></li>
+<li><p><strong>min_clean_fraction</strong> (<em>float</em>) – Minimum fraction of windows that need to be clean, used for threshold
+estimation (default=0.25).</p></li>
+<li><p><strong>method</strong> (<em>{'euclid'</em><em>, </em><em>'riemann'}</em>) – Metric to compute the covariance matric average.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>M</strong> (<em>array</em>) – Mixing matrix.</p></li>
+<li><p><strong>T</strong> (<em>array</em>) – Threshold matrix.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meegkit.asr.asr_process">
+<code class="sig-prename descclassname">meegkit.asr.</code><code class="sig-name descname">asr_process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">X_filt</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">cov</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">detrend</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'riemann'</span></em>, <em class="sig-param"><span class="n">sample_weight</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.asr.asr_process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply Artifact Subspace Reconstruction method.</p>
+<p>This function is used to clean multi-channel signal using the ASR method.
+The required inputs are the data matrix, the sampling rate of the data, and
+the filter state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>[</em><em>n_trials</em><em>, </em><em>]</em><em>n_channels</em><em>, </em><em>n_samples</em><em>)</em>) – Raw data.</p></li>
+<li><p><strong>X_filt</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>[</em><em>n_trials</em><em>, </em><em>]</em><em>n_channels</em><em>, </em><em>n_samples</em><em>)</em>) – Yulewalk-filtered epochs to estimate covariance. Optional if covariance
+is provided.</p></li>
+<li><p><strong>state</strong> (<em>dict</em>) – <p>Initial ASR parameters (as derived by <a class="reference internal" href="#meegkit.asr.asr_calibrate" title="meegkit.asr.asr_calibrate"><code class="xref py py-func docutils literal notranslate"><span class="pre">asr_calibrate()</span></code></a>):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span></code> : Mixing matrix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code> : Threshold matrix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">R</span></code> : Previous reconstruction matrix (array | None)</p></li>
+</ul>
+</p></li>
+<li><p><strong>cov</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>[</em><em>n_trials</em><em>, </em><em>]</em><em>n_channels</em><em>, </em><em>n_channels</em><em>) </em><em>| None</em>) – Covariance. If None (default), then it is computed from <code class="docutils literal notranslate"><span class="pre">X_filt</span></code>. If
+a 3D array is provided, the average covariance is computed from all the
+elements in it.</p></li>
+<li><p><strong>detrend</strong> (<em>bool</em>) – If True, detrend filtered data (default=False).</p></li>
+<li><p><strong>method</strong> (<em>{'euclid'</em><em>, </em><em>'riemann'}</em>) – Metric to compute the covariance matric average.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>clean</strong> (<em>array, shape=([n_trials, ]n_channels, n_samples)</em>) – Clean data.</p></li>
+<li><p><strong>state</strong> (<em>3-tuple</em>) – Output ASR parameters.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nicolas Barascud.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

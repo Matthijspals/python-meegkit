@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>meegkit.star &#8212; MEEGkit  documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="meegkit.tspca" href="meegkit.tspca.html" />
+    <link rel="prev" title="meegkit.sns" href="meegkit.sns.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          MEEGkit</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+                <li><a href="https://github.com/nbara/python-meegkit">GitHub</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">MEEGkit documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="meegkit.asr.html">meegkit.asr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.cca.html">meegkit.cca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.dss.html">meegkit.dss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.detrend.html">meegkit.detrend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.sns.html">meegkit.sns</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">meegkit.star</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.tspca.html">meegkit.tspca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.utils.html">meegkit.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.covariances">Covariances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.denoise">Denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.matrix">Matrix manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.sig">Signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.stats">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">MEEGkit examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dering.html">Ringing artifact reduction example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dering.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_star.html">Sparse time artifact removal on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dss.html">DSS example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_asr.html">ASR example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html">Robust detrending examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html#regression">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_star_dss.html">Example demonstrating STAR + DSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_mcca.html">Example multiway canonical correlation analysis (mCCA)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">meegkit.star</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/modules/meegkit.star.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="module-meegkit.star">
+<span id="meegkit-star"></span><h1>meegkit.star<a class="headerlink" href="#module-meegkit.star" title="Permalink to this headline">¶</a></h1>
+<p>Sparse time-artefact removal.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#meegkit.star.star" title="meegkit.star.star"><code class="xref py py-obj docutils literal notranslate"><span class="pre">star</span></code></a>(X[, thresh, closest, depth, …])</p></td>
+<td><p>Sparse time-artifact removal.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="meegkit.star.star">
+<code class="sig-prename descclassname">meegkit.star.</code><code class="sig-name descname">star</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">thresh</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">closest</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">depth</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">pca_thresh</span><span class="o">=</span><span class="default_value">1e-15</span></em>, <em class="sig-param"><span class="n">n_smooth</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">min_prop</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">n_iter</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.star.star" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sparse time-artifact removal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>n_times</em><em>, </em><em>n_chans</em><em>[</em><em>, </em><em>n_trials</em><em>]</em><em>)</em>) – Data to denoise.</p></li>
+<li><p><strong>thresh</strong> (<em>float</em>) – Threshold for eccentricity measure (default=1).</p></li>
+<li><p><strong>closest</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>n_chans</em><em>, </em><em>n_neighbours</em><em>)</em>) – Indices of channels that are closest to each channel (default=all).</p></li>
+<li><p><strong>depth</strong> (<em>int</em>) – Maximum number of channels to fix at each sample (default=1).</p></li>
+<li><p><strong>pca_thresh</strong> (<em>float</em>) – Threshold for discarding weak PCs (default=1e-15)</p></li>
+<li><p><strong>n_smooth</strong> (<em>int</em>) – Samples, smoothing to apply to eccentricity (default=10).</p></li>
+<li><p><strong>min_prop</strong> (<em>float</em>) – Minimum proportion of artifact free at first iteration (default=0.3).</p></li>
+<li><p><strong>n_iter</strong> (<em>int</em>) – Iterations to refine c0 (default=3).</p></li>
+<li><p><strong>verbose</strong> (<em>bool | 'debug'</em>) – Verbosity. If ‘debug’, also draw some diagnostics plots.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>array</em>) – Denoised data.</p></li>
+<li><p><strong>w</strong> (<em>array, shape=(n_times, 1)</em>) – 0 for parts that needed fixing, 1 elsewhere.</p></li>
+<li><p><strong>ww</strong> (<em>array, shape=(n_times, n_chans)</em>) – 0 for parts that needed fixing, 1 elsewhere.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">sns()</span></code></p>
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nicolas Barascud.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
